@@ -71,7 +71,7 @@ func listenChannel(s *discordgo.Session, m *discordgo.MessageCreate) error {
 	}
 	for _, vs := range g.VoiceStates {
 		if vs.UserID == m.Author.ID {
-			_, err := s.ChannelVoiceJoin(g.ID, c.ID, true, true)
+			_, err := s.ChannelVoiceJoin(g.ID, vs.ChannelID, true, true)
 			return err
 		}
 	}
